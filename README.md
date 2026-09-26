@@ -14,7 +14,7 @@ For a room named **Stue**:
 
 | Entity | What it is |
 | --- | --- |
-| `media_player.stue_theater` | The room. On while the TV or receiver is on; *playing*/*paused* from the player on screen. `source` is the friendly source, `source_list` your favourites. Title, series, artist, app and picture come from the linked player (or the TV app). Volume goes to the receiver. Turn on/off, select source, volume, play/pause. |
+| `media_player.stue_theater` | The room. On while the TV or receiver is on; *playing*/*paused* from the player on screen. `source` is the friendly source, `source_list` your favourites. Title, series, artist, app and picture come from the linked player (or the TV app). Volume goes to the receiver. Turn on/off, select source, volume, play/pause. Its `sources`, `all_sources`, `tv`, `receiver` and `audio_problem` attributes stay available while the room is off, for dashboards. |
 | `sensor.stue_source` | What is on: a source name, or `off`. Its `source_list` and `all_sources` attributes stay available while the devices are off. |
 | `remote.stue_remote` | Arrow keys: `up`, `down`, `left`, `right`, `ok`, `back`, `home`, `menu`, `info`, sent to the active source's remote or else to the TV. Activities are the favourite sources. |
 | `binary_sensor.stue_audio` | Problem sensor: on when the TV plays through its own speakers instead of the receiver (only with both a TV and a receiver). |
@@ -80,7 +80,7 @@ data: { command: [down, down, ok] }
 
 ## Home Theater Card
 
-[Home Theater Card](https://github.com/mvheimburg/lovelace-home-theater) is the matching dashboard card. Version 0.1 binds the TV and receiver directly and works without this integration; a later card version will use the room's entities.
+[Home Theater Card](https://github.com/mvheimburg/lovelace-home-theater) is the matching dashboard card. From card 0.2.0, choose the room's media player as its **Home Theater room** (needs this integration 0.2.0 or later): the card then shows what is playing, keeps sources while the room is off, sends arrow keys through the room's remote and links its Configure to these settings. Without the integration, the card binds the TV and receiver directly.
 
 ## ARC checklist
 

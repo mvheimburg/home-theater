@@ -140,6 +140,12 @@ class TheaterMediaPlayer(TheaterEntity, MediaPlayerEntity):
             "linked_player": theater.playing_entity(),
             "tv_sound_output": theater.attr(theater.tv, "sound_output"),
             "can_turn_on_tv": theater.can_wake_tv,
+            "audio_problem": theater.arc_problem(),
+            "tv": theater.tv,
+            "receiver": theater.receiver,
+            # A media player drops source_list while off; these stay for dashboards.
+            "sources": [s.label for s in theater.favourites()],
+            "all_sources": [s.label for s in theater.all_sources()],
         }
 
     async def async_turn_on(self):

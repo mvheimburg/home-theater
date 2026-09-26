@@ -80,6 +80,11 @@ async def test_sources_stay_known_while_everything_is_off(hass, room, entry):
     source = hass.states.get(SOURCE)
     assert source.state == "off"
     assert source.attributes["source_list"] == ["Chromecast", "PlayStation", "NRK TV", "Netflix"]
+    room_state = hass.states.get(THEATER)
+    assert room_state.attributes["sources"] == ["Chromecast", "PlayStation", "NRK TV", "Netflix"]
+    assert "YouTube" in room_state.attributes["all_sources"]
+    assert room_state.attributes["tv"] == "media_player.lg"
+    assert room_state.attributes["receiver"] == "media_player.denon"
     assert "YouTube" in source.attributes["all_sources"]
     assert "Denon Hjemmekinoanlegg" not in source.attributes["all_sources"]
     assert "TV Audio" not in source.attributes["all_sources"]
@@ -225,6 +230,7 @@ async def test_tv_speakers_raise_a_problem_that_can_be_fixed(hass, room, entry):
     room.tv.set(extra_state_attributes={"sound_output": "tv_speaker"})
     await hass.async_block_till_done()
     assert hass.states.get(AUDIO).state == "on"
+    assert hass.states.get(THEATER).attributes["audio_problem"] is True
     await call(hass, "home_theater", "use_receiver", THEATER)
     assert room.outputs == ["external_arc"]
     assert hass.states.get(AUDIO).state == "off"
