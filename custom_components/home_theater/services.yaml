@@ -1,0 +1,5 @@
+use_receiver:
+  target:
+    entity:
+      integration: home_theater
+      domain: media_player

@@ -1,0 +1,160 @@
+{
+  "title": "Hjemmekino",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Hjemmekino",
+        "description": "Gi rommet et navn og velg TV og AV-mottaker. Rommet blir én enhet som slår begge av og på, bytter kilde på begge og viser hva som spilles.",
+        "data": {
+          "name": "Romnavn",
+          "tv": "TV (LG webOS)",
+          "receiver": "AV-mottaker",
+          "wol_mac": "TV-ens MAC-adresse for Wake-on-LAN"
+        },
+        "data_description": {
+          "name": "Enhets-ID-ene bruker dette navnet, for eksempel media_player.stue_theater.",
+          "tv": "Piltaster og TV-apper går til denne TV-en.",
+          "receiver": "Volumet går til mottakeren, og inngangene blir kilder.",
+          "wol_mac": "Valgfritt. Lar Home Assistant slå på TV-en når den er av nettverket. Slå på «Slå på via Wi-Fi» (eller «Mobil TV på») på TV-en."
+        }
+      },
+      "inputs": {
+        "title": "Hvordan TV og mottaker er koblet",
+        "description": "Når du velger en kilde på mottakeren, bytter TV-en til mottakerens inngang. Når du velger en TV-app, bytter mottakeren til TV-lyden.",
+        "data": {
+          "tv_input": "TV-inngangen mottakeren er koblet til",
+          "tv_audio": "Inngang på mottakeren for TV-ens egen lyd"
+        },
+        "data_description": {
+          "tv_input": "For eksempel HDMI 2, eller navnet TV-en gir mottakeren. Listen er tom mens TV-en er av; du kan skrive navnet.",
+          "tv_audio": "Vanligvis TV Audio: inngangen som spiller TV-lyden over HDMI ARC."
+        }
+      }
+    },
+    "error": {
+      "no_devices": "Velg en TV, en mottaker eller begge.",
+      "same_device": "Velg en annen spiller som mottaker.",
+      "mac_without_tv": "Wake-on-LAN krever en TV.",
+      "invalid_mac": "Skriv en MAC-adresse som AA:BB:CC:DD:EE:FF."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Innstillinger for hjemmekino",
+        "description": "Endringer holdes som et utkast til du velger Lagre. Lukk dialogen for å beholde gjeldende innstillinger.",
+        "menu_options": {
+          "devices": "TV, mottaker og Wake-on-LAN",
+          "sources": "Favorittkilder",
+          "source": "Gi navn til eller koble en kilde",
+          "save": "Lagre"
+        }
+      },
+      "devices": {
+        "title": "TV og mottaker",
+        "data": {
+          "tv": "TV (LG webOS)",
+          "receiver": "AV-mottaker",
+          "wol_mac": "TV-ens MAC-adresse for Wake-on-LAN"
+        },
+        "data_description": {
+          "tv": "Piltaster og TV-apper går til denne TV-en.",
+          "receiver": "Volumet går til mottakeren, og inngangene blir kilder.",
+          "wol_mac": "Valgfritt. Lar Home Assistant slå på TV-en når den er av nettverket. Slå på «Slå på via Wi-Fi» (eller «Mobil TV på») på TV-en."
+        }
+      },
+      "inputs": {
+        "title": "Hvordan TV og mottaker er koblet",
+        "description": "Når du velger en kilde på mottakeren, bytter TV-en til mottakerens inngang. Når du velger en TV-app, bytter mottakeren til TV-lyden.",
+        "data": {
+          "tv_input": "TV-inngangen mottakeren er koblet til",
+          "tv_audio": "Inngang på mottakeren for TV-ens egen lyd"
+        },
+        "data_description": {
+          "tv_input": "For eksempel HDMI 2, eller navnet TV-en gir mottakeren. Listen er tom mens TV-en er av; du kan skrive navnet.",
+          "tv_audio": "Vanligvis TV Audio: inngangen som spiller TV-lyden over HDMI ARC."
+        }
+      },
+      "sources": {
+        "title": "Favorittkilder",
+        "description": "Velg kildene som skal tilbys, i den rekkefølgen du velger dem. La stå tomt for mottakerens innganger og Live TV. Kilder som er lært mens enhetene var på, blir stående når de er av.",
+        "data": {
+          "sources": "Kilder"
+        }
+      },
+      "source": {
+        "title": "Gi navn til eller koble en kilde",
+        "description": "Velg en favorittkilde for å gi den nytt navn eller koble den til spilleren på inngangen.",
+        "data": {
+          "source": "Kilde"
+        }
+      },
+      "link": {
+        "title": "{source}",
+        "description": "Koble spilleren på denne inngangen slik at rommet viser hva den spiller, og fjernkontrollen som styrer den med piltastene.",
+        "data": {
+          "name": "Visningsnavn",
+          "player": "Spiller på denne inngangen",
+          "remote": "Fjernkontroll for denne spilleren"
+        },
+        "data_description": {
+          "name": "For eksempel Apple TV for mottakerens Media Player-inngang.",
+          "player": "For eksempel en Chromecast eller Music Assistant-spiller. Tittel, artist og bilde vises for rommet.",
+          "remote": "For eksempel Android TV Remote eller Apple TV. Uten en går piltastene til TV-en."
+        }
+      }
+    },
+    "error": {
+      "no_devices": "Velg en TV, en mottaker eller begge.",
+      "same_device": "Velg en annen spiller som mottaker.",
+      "mac_without_tv": "Wake-on-LAN krever en TV.",
+      "invalid_mac": "Skriv en MAC-adresse som AA:BB:CC:DD:EE:FF.",
+      "no_sources": "Velg favorittkilder først."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "audio": {
+        "name": "TV-lyd ikke på mottakeren"
+      }
+    },
+    "media_player": {
+      "theater": {
+        "name": "Hjemmekino"
+      }
+    },
+    "remote": {
+      "remote": {
+        "name": "Fjernkontroll"
+      }
+    },
+    "sensor": {
+      "source": {
+        "name": "Kilde",
+        "state": {
+          "off": "Av"
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "no_response": {
+      "message": "{device} svarte ikke i tide."
+    },
+    "unavailable": {
+      "message": "{device} er utilgjengelig."
+    },
+    "unknown_source": {
+      "message": "{source} er ikke en kilde i dette rommet."
+    },
+    "no_remote_target": {
+      "message": "Ingenting å sende piltaster til: TV-en er av, og kilden har ingen fjernkontroll."
+    }
+  },
+  "services": {
+    "use_receiver": {
+      "name": "Send TV-lyd til mottakeren",
+      "description": "Bytt TV-ens lydutgang tilbake til mottakeren over HDMI ARC."
+    }
+  }
+}

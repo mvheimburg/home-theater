@@ -1,0 +1,160 @@
+{
+  "title": "Home Theater",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Home Theater",
+        "description": "Name the room and choose its TV and AV receiver. The room becomes one device that turns both on and off, switches sources on both and shows what is playing.",
+        "data": {
+          "name": "Room name",
+          "tv": "TV (LG webOS)",
+          "receiver": "AV receiver",
+          "wol_mac": "TV MAC address for Wake-on-LAN"
+        },
+        "data_description": {
+          "name": "Entity IDs use this name, for example media_player.stue_theater.",
+          "tv": "Arrow keys and TV apps go to this TV.",
+          "receiver": "Volume goes to the receiver, and its inputs become sources.",
+          "wol_mac": "Optional. Lets Home Assistant turn the TV on while it is off the network. Enable Turn on via Wi-Fi (or Mobile TV On) on the TV."
+        }
+      },
+      "inputs": {
+        "title": "How the TV and receiver connect",
+        "description": "Choosing a receiver source puts the TV on the receiver's input. Choosing a TV app puts the receiver on the TV's sound.",
+        "data": {
+          "tv_input": "TV input the receiver is connected to",
+          "tv_audio": "Receiver input for the TV's own sound"
+        },
+        "data_description": {
+          "tv_input": "For example HDMI 2, or the name the TV gives the receiver. The list is empty while the TV is off; you can type the name.",
+          "tv_audio": "Usually TV Audio: the input that plays the TV's sound over HDMI ARC."
+        }
+      }
+    },
+    "error": {
+      "no_devices": "Choose a TV, a receiver or both.",
+      "same_device": "Choose a different player for the receiver.",
+      "mac_without_tv": "Wake-on-LAN needs a TV.",
+      "invalid_mac": "Enter a MAC address such as AA:BB:CC:DD:EE:FF."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Home Theater settings",
+        "description": "Changes are kept as a draft until you choose Save. Close this dialog to keep the current settings.",
+        "menu_options": {
+          "devices": "TV, receiver and Wake-on-LAN",
+          "sources": "Favourite sources",
+          "source": "Name or link a source",
+          "save": "Save"
+        }
+      },
+      "devices": {
+        "title": "TV and receiver",
+        "data": {
+          "tv": "TV (LG webOS)",
+          "receiver": "AV receiver",
+          "wol_mac": "TV MAC address for Wake-on-LAN"
+        },
+        "data_description": {
+          "tv": "Arrow keys and TV apps go to this TV.",
+          "receiver": "Volume goes to the receiver, and its inputs become sources.",
+          "wol_mac": "Optional. Lets Home Assistant turn the TV on while it is off the network. Enable Turn on via Wi-Fi (or Mobile TV On) on the TV."
+        }
+      },
+      "inputs": {
+        "title": "How the TV and receiver connect",
+        "description": "Choosing a receiver source puts the TV on the receiver's input. Choosing a TV app puts the receiver on the TV's sound.",
+        "data": {
+          "tv_input": "TV input the receiver is connected to",
+          "tv_audio": "Receiver input for the TV's own sound"
+        },
+        "data_description": {
+          "tv_input": "For example HDMI 2, or the name the TV gives the receiver. The list is empty while the TV is off; you can type the name.",
+          "tv_audio": "Usually TV Audio: the input that plays the TV's sound over HDMI ARC."
+        }
+      },
+      "sources": {
+        "title": "Favourite sources",
+        "description": "Choose the sources to offer, in the order you pick them. Leave empty for the receiver's inputs and Live TV. Sources learned while the devices were on stay listed when they are off.",
+        "data": {
+          "sources": "Sources"
+        }
+      },
+      "source": {
+        "title": "Name or link a source",
+        "description": "Choose a favourite source to rename, or to link to the player on that input.",
+        "data": {
+          "source": "Source"
+        }
+      },
+      "link": {
+        "title": "{source}",
+        "description": "Link the player on this input so the room shows what it is playing, and the remote whose arrow keys control it.",
+        "data": {
+          "name": "Display name",
+          "player": "Player on this input",
+          "remote": "Remote for this player"
+        },
+        "data_description": {
+          "name": "For example Apple TV for the receiver's Media Player input.",
+          "player": "Such as a Chromecast or Music Assistant player. Its title, artist and picture become the room's.",
+          "remote": "Such as an Android TV Remote or Apple TV remote. Without one, arrow keys go to the TV."
+        }
+      }
+    },
+    "error": {
+      "no_devices": "Choose a TV, a receiver or both.",
+      "same_device": "Choose a different player for the receiver.",
+      "mac_without_tv": "Wake-on-LAN needs a TV.",
+      "invalid_mac": "Enter a MAC address such as AA:BB:CC:DD:EE:FF.",
+      "no_sources": "Choose favourite sources first."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "audio": {
+        "name": "TV sound not on receiver"
+      }
+    },
+    "media_player": {
+      "theater": {
+        "name": "Home theater"
+      }
+    },
+    "remote": {
+      "remote": {
+        "name": "Remote"
+      }
+    },
+    "sensor": {
+      "source": {
+        "name": "Source",
+        "state": {
+          "off": "Off"
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "no_response": {
+      "message": "{device} did not respond in time."
+    },
+    "unavailable": {
+      "message": "{device} is unavailable."
+    },
+    "unknown_source": {
+      "message": "{source} is not a source in this room."
+    },
+    "no_remote_target": {
+      "message": "Nothing to send remote keys to: the TV is off and the source has no remote."
+    }
+  },
+  "services": {
+    "use_receiver": {
+      "name": "Send TV sound to the receiver",
+      "description": "Switch the TV's sound output back to the receiver over HDMI ARC."
+    }
+  }
+}

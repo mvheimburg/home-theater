@@ -1,0 +1,21 @@
+[project]
+name = "home-theater"
+version = "0.1.0"
+description = "One Home Assistant device per room for a TV, an AV receiver and the players behind their inputs"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "mvheimburg" }]
+requires-python = ">=3.14.2"
+[project.urls]
+Homepage = "https://github.com/mvheimburg/home-theater"
+Issues = "https://github.com/mvheimburg/home-theater/issues"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
