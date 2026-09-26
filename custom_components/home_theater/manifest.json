@@ -6,8 +6,8 @@
   ],
   "config_flow": true,
   "documentation": "https://github.com/mvheimburg/home-theater",
-  "integration_type": "helper",
+  "integration_type": "device",
   "iot_class": "calculated",
   "issue_tracker": "https://github.com/mvheimburg/home-theater/issues",
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
