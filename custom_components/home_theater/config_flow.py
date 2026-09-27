@@ -24,7 +24,7 @@ from .wol import valid_mac
 
 DEVICE_WORDS = {
     "en": {TV: "TV", RECEIVER: "receiver"},
-    "nb": {TV: "TV", RECEIVER: "mottaker"},
+    "nb": {TV: "TV", RECEIVER: "forsterker"},
 }
 
 

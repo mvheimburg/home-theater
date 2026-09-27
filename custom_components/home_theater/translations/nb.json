@@ -4,36 +4,36 @@
     "step": {
       "user": {
         "title": "Hjemmekino",
-        "description": "Gi rommet et navn og velg TV og AV-mottaker. Rommet blir én enhet som slår begge av og på, bytter kilde på begge og viser hva som spilles.",
+        "description": "Gi rommet et navn og velg TV og Forsterker. Rommet blir én enhet som slår begge av og på, bytter kilde på begge og viser hva som spilles.",
         "data": {
           "name": "Romnavn",
           "tv": "TV (LG webOS)",
-          "receiver": "AV-mottaker",
+          "receiver": "Forsterker",
           "wol_mac": "TV-ens MAC-adresse for Wake-on-LAN"
         },
         "data_description": {
           "name": "Enhets-ID-ene bruker dette navnet, for eksempel media_player.stue_theater.",
           "tv": "Piltaster og TV-apper går til denne TV-en.",
-          "receiver": "Volumet går til mottakeren, og inngangene blir kilder.",
+          "receiver": "Volumet går til forsterkeren, og inngangene blir kilder.",
           "wol_mac": "Valgfritt. Lar Home Assistant slå på TV-en når den er av nettverket. Slå på «Slå på via Wi-Fi» (eller «Mobil TV på») på TV-en."
         }
       },
       "inputs": {
-        "title": "Hvordan TV og mottaker er koblet",
-        "description": "Når du velger en kilde på mottakeren, bytter TV-en til mottakerens inngang. Når du velger en TV-app, bytter mottakeren til TV-lyden.",
+        "title": "Hvordan TV og forsterker er koblet",
+        "description": "Når du velger en kilde på forsterkeren, bytter TV-en til forsterkerens inngang. Når du velger en TV-app, bytter forsterkeren til TV-lyden.",
         "data": {
-          "tv_input": "TV-inngangen mottakeren er koblet til",
-          "tv_audio": "Inngang på mottakeren for TV-ens egen lyd"
+          "tv_input": "TV-inngangen forsterkeren er koblet til",
+          "tv_audio": "Inngang på forsterkeren for TV-ens egen lyd"
         },
         "data_description": {
-          "tv_input": "For eksempel HDMI 2, eller navnet TV-en gir mottakeren. Listen er tom mens TV-en er av; du kan skrive navnet.",
+          "tv_input": "For eksempel HDMI 2, eller navnet TV-en gir forsterkeren. Listen er tom mens TV-en er av; du kan skrive navnet.",
           "tv_audio": "Vanligvis TV Audio: inngangen som spiller TV-lyden over HDMI ARC."
         }
       }
     },
     "error": {
-      "no_devices": "Velg en TV, en mottaker eller begge.",
-      "same_device": "Velg en annen spiller som mottaker.",
+      "no_devices": "Velg en TV, en forsterker eller begge.",
+      "same_device": "Velg en annen spiller som forsterker.",
       "mac_without_tv": "Wake-on-LAN krever en TV.",
       "invalid_mac": "Skriv en MAC-adresse som AA:BB:CC:DD:EE:FF."
     }
@@ -44,40 +44,40 @@
         "title": "Innstillinger for hjemmekino",
         "description": "Endringer holdes som et utkast til du velger Lagre. Lukk dialogen for å beholde gjeldende innstillinger.",
         "menu_options": {
-          "devices": "TV, mottaker og Wake-on-LAN",
+          "devices": "TV, forsterker og Wake-on-LAN",
           "sources": "Favorittkilder",
           "source": "Gi navn til eller koble en kilde",
           "save": "Lagre"
         }
       },
       "devices": {
-        "title": "TV og mottaker",
+        "title": "TV og forsterker",
         "data": {
           "tv": "TV (LG webOS)",
-          "receiver": "AV-mottaker",
+          "receiver": "Forsterker",
           "wol_mac": "TV-ens MAC-adresse for Wake-on-LAN"
         },
         "data_description": {
           "tv": "Piltaster og TV-apper går til denne TV-en.",
-          "receiver": "Volumet går til mottakeren, og inngangene blir kilder.",
+          "receiver": "Volumet går til forsterkeren, og inngangene blir kilder.",
           "wol_mac": "Valgfritt. Lar Home Assistant slå på TV-en når den er av nettverket. Slå på «Slå på via Wi-Fi» (eller «Mobil TV på») på TV-en."
         }
       },
       "inputs": {
-        "title": "Hvordan TV og mottaker er koblet",
-        "description": "Når du velger en kilde på mottakeren, bytter TV-en til mottakerens inngang. Når du velger en TV-app, bytter mottakeren til TV-lyden.",
+        "title": "Hvordan TV og forsterker er koblet",
+        "description": "Når du velger en kilde på forsterkeren, bytter TV-en til forsterkerens inngang. Når du velger en TV-app, bytter forsterkeren til TV-lyden.",
         "data": {
-          "tv_input": "TV-inngangen mottakeren er koblet til",
-          "tv_audio": "Inngang på mottakeren for TV-ens egen lyd"
+          "tv_input": "TV-inngangen forsterkeren er koblet til",
+          "tv_audio": "Inngang på forsterkeren for TV-ens egen lyd"
         },
         "data_description": {
-          "tv_input": "For eksempel HDMI 2, eller navnet TV-en gir mottakeren. Listen er tom mens TV-en er av; du kan skrive navnet.",
+          "tv_input": "For eksempel HDMI 2, eller navnet TV-en gir forsterkeren. Listen er tom mens TV-en er av; du kan skrive navnet.",
           "tv_audio": "Vanligvis TV Audio: inngangen som spiller TV-lyden over HDMI ARC."
         }
       },
       "sources": {
         "title": "Favorittkilder",
-        "description": "Velg kildene som skal tilbys, i den rekkefølgen du velger dem. La stå tomt for mottakerens innganger og Live TV. Kilder som er lært mens enhetene var på, blir stående når de er av.",
+        "description": "Velg kildene som skal tilbys, i den rekkefølgen du velger dem. La stå tomt for forsterkerens innganger og Live TV. Kilder som er lært mens enhetene var på, blir stående når de er av.",
         "data": {
           "sources": "Kilder"
         }
@@ -98,15 +98,15 @@
           "remote": "Fjernkontroll for denne spilleren"
         },
         "data_description": {
-          "name": "For eksempel Apple TV for mottakerens Media Player-inngang.",
+          "name": "For eksempel Apple TV for forsterkerens Media Player-inngang.",
           "player": "For eksempel en Chromecast eller Music Assistant-spiller. Tittel, artist og bilde vises for rommet.",
           "remote": "For eksempel Android TV Remote eller Apple TV. Uten en går piltastene til TV-en."
         }
       }
     },
     "error": {
-      "no_devices": "Velg en TV, en mottaker eller begge.",
-      "same_device": "Velg en annen spiller som mottaker.",
+      "no_devices": "Velg en TV, en forsterker eller begge.",
+      "same_device": "Velg en annen spiller som forsterker.",
       "mac_without_tv": "Wake-on-LAN krever en TV.",
       "invalid_mac": "Skriv en MAC-adresse som AA:BB:CC:DD:EE:FF.",
       "no_sources": "Velg favorittkilder først."
@@ -115,7 +115,7 @@
   "entity": {
     "binary_sensor": {
       "audio": {
-        "name": "TV-lyd ikke på mottakeren"
+        "name": "TV-lyd ikke på forsterkeren"
       }
     },
     "media_player": {
@@ -153,8 +153,8 @@
   },
   "services": {
     "use_receiver": {
-      "name": "Send TV-lyd til mottakeren",
-      "description": "Bytt TV-ens lydutgang tilbake til mottakeren over HDMI ARC."
+      "name": "Send TV-lyd til forsterkeren",
+      "description": "Bytt TV-ens lydutgang tilbake til forsterkeren over HDMI ARC."
     }
   }
 }
